@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .calculator {
+        border: 2px solid #2d304b;
+        border-radius: 5px;
+        padding: 20px;
+        width: 300px;
+        background-color: #2d304b;
+        }
+
+        input {
+            display: block;
+            margin: 15px 0;
+            border: 1px solid #0c6dc9;
+            border-radius: 5px;
+            color: #aaaaaa;
+            width: 90%;
+            height: 30px;
+            padding: 5px 10px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        select {
+            height: 30px;
+            padding: 5px 10px;
+            font-size: 16px;
+            width: 60px;
+            border: 1px solid #2d304b;
+            border-radius: 5px;
+        }
+
+        button {
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+            background-color: #ffffff;
+            font-size: 16px;
+            padding: 5px 20px;
+            color: #2d304b;
+        }
+
+        p {
+            color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="num1">
+        <input type="text" id="num2">
+        <p>Select operators</p>
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <button onclick="calc()">Calculate!</button>
+    </div>
+    <script>
+
+        function calc(){
+            //从input输入框中获取两个操作数
+            var num1El = document.getElementById('num1')
+            var num2El = document.getElementById('num2')
+            //从select框中获取操作符
+            var opEl = document.getElementById('operator')
+
+            //获取操作数和操作符的值
+            var num1 = parseFloat(num1El.value)
+            var num2 = parseFloat(num2El.value)
+            var op = opEl.value
+
+            //change the code for node.js
+            //后端地址
+            var requestUrl = '/calc'
+            //发送给后端的数据
+            var requestParams = 'num1=' + num1 + '&num2=' + num2 + '&op=' + encodeURIComponent(op); 
+            var url = requestUrl + '?' + requestParams
+            var xhr = new XMLHttpRequest()
+            //设置当后端请求产生反馈后的处理
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        alert('The result is: ' + xhr.responseText);
+                    }
+                    else {
+                        alert('Request service failed.');
+                    }
+                }
+            }
+            xhr.open('GET', url, true)
+            xhr.send(null)
+        }
+    </script>
+</body>
+</html>
