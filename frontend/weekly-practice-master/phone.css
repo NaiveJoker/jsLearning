@@ -1,0 +1,83 @@
+body{
+	padding:100px;
+	background-color:#263238;
+	
+}
+.header{
+	background-image:url("https://cdn.pixabay.com/photo/2014/09/23/21/22/iphone-6-458153_960_720.jpg");
+	background-repeat:no-repeat;
+	background-size:120%;
+	background-position:center;
+	text-align:left;
+	length:200px;
+	height:200px;
+	padding:50px;
+	margin:10px;
+}
+h1,h2,h3,h4,p,ul,a{
+	color: #fff;
+}
+h1{
+	font-size:70px;
+	font-family: 'Oswald', sans-serif;
+	font-weight:700;
+}
+p,li{
+	font-size:15px;
+	font-family:'Roboto';
+	font-weight:400;
+}
+#hp{
+	color:#eeeeee;
+	
+}
+.article{
+	background-color:rgba(140,140,140,0.7);
+	padding:25px;
+	margin:10px;
+}
+img{
+	object-fit:cover;
+	width:400px;
+	height:400px;
+}
+h2,h3,h4{
+	font-family: 'Oswald';
+	
+}
+
+.content1{
+	border:3px solid #fff;
+	margin:15px;
+	padding:5px;
+}
+.content2{
+	border:3px solid #fff;
+	margin:15px;
+	padding:5px;
+}
+.content3{
+	border:3px solid #fff;
+	margin:15px;
+	padding:5px;		
+}
+a{
+	color:#fff;
+	font-family:"Oswald";
+	font-size:35px;
+	
+}
+.btn{
+	text-decoration: none;
+	
+}
+.btn:hover{
+	background-color:white;
+	color:rgba(140,140,140,0.7);
+}
+h2{
+	font-size:30px;
+}
+h3{
+	font-size:20px;
+}
